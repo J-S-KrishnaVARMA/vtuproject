@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse | Future of Movie Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="glow-effect glow-1"></div>
+    <div class="glow-effect glow-2"></div>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">CineVerse</div>
+            <nav class="nav-links">
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="movies-link">Movies</a>
+                <div id="user-nav" style="display: none;">
+                    <a href="#" id="bookings-link">My Bookings</a>
+                    <a href="#" id="logout-link">Logout</a>
+                </div>
+                <div id="auth-nav">
+                    <a href="#" id="login-link">Login |</a>
+                    <a href="#" id="signup-link"> Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Login Modal -->
+        <div id="login-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login to CineVerse</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div id="signup-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Create Account</h2>
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Home Section -->
+        <section id="home-section" class="hero">
+            <div class="hero-content">
+                <h1>Experience Movies Like Never Before</h1>
+                <p>Step into the future of cinema with our state-of-the-art theaters, immersive sound systems, and crystal-clear projection. Book your seats now for an unforgettable experience.</p>
+                <div class="hero-buttons">
+                    <a href="#" id="book-now-btn" class="btn">Book Now</a>
+                    <a href="#" id="explore-movies-btn" class="btn btn-outline">Explore Movies</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Movies Section -->
+        <section id="movies-section" class="movie-grid" style="display: none;">
+            <h2 class="section-title">Now Showing</h2>
+            <div id="movies-container" class="movies"></div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking-section" class="booking-section" style="display: none;">
+            <div class="booking-form">
+                <h2 class="form-title">Book Your Experience</h2>
+                <form id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="movie">Select Movie</label>
+                            <select id="movie" class="form-control" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="theater">Select Theater</label>
+                            <select id="theater" class="form-control" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Select Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Select Time</label>
+                            <select id="time" class="form-control" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="seats">Number of Seats</label>
+                            <input type="number" id="seats" class="form-control" min="1" max="10" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Experience Type</label>
+                            <select id="experience" class="form-control" required>
+                                <option value="standard">Standard (2D)</option>
+                                <option value="3d">Immersive 3D</option>
+                                <option value="4dx">4DX Motion</option>
+                                <option value="vip">VIP Luxury</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="seats-container" style="display: none;">
+                        <h3>Select Your Seats</h3>
+                        <div id="seats-grid"></div>
+                        <div id="selected-seats-display"></div>
+                    </div>
+
+                    <button type="submit" id="confirm-booking-btn" class="form-submit" style="display: none;">Confirm Booking</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Bookings Section -->
+        <section id="bookings-section" class="booking-section" style="display: none;">
+            <h2 class="section-title">My Bookings</h2>
+            <div id="bookings-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">CineVerse</div>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="social-links">
+            <a href="#">⌨</a>
+            <a href="#">⌘</a>
+            <a href="#">⎈</a>
+            <a href="#">⎔</a>
+        </div>
+        <p class="copyright">© 2023 CineVerse Technologies. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
